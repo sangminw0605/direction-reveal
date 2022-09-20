@@ -1,5 +1,7 @@
 // ----- Imports and variables ------
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
+var gulp   = require('gulp');
+var deploy = require('gulp-gh-pages');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const $ = gulpLoadPlugins();
 const browserSync = require('browser-sync');
@@ -94,14 +96,6 @@ function clean() {
   return del([`${paths.tmp}`, `${paths.dest}`])
 }
 exports.clean = clean;
-
-gulp.task('deploy', function () {
-  return gulp.src("./prod/**/*")
-    .pipe(deploy({ 
-      remoteUrl: "https://github.com/sangminw0605/sangminw0605.github.io.git",
-      branch: "master"
-    }))
-});
 
 
 const build = series(compile, moveFiles);
