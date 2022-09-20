@@ -1,7 +1,5 @@
 // ----- Imports and variables ------
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
-var gulp   = require('gulp');
-var deploy = require('gulp-gh-pages');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const $ = gulpLoadPlugins();
 const browserSync = require('browser-sync');
