@@ -95,6 +95,14 @@ function clean() {
 }
 exports.clean = clean;
 
+gulp.task('deploy', function () {
+  return gulp.src("./prod/**/*")
+    .pipe(deploy({ 
+      remoteUrl: "https://github.com/sangminw0605/sangminw0605.github.io.git",
+      branch: "master"
+    }))
+});
+
 
 const build = series(compile, moveFiles);
 exports.build = build;
